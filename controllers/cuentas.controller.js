@@ -6,7 +6,7 @@ const parseBalance = (balanceStr) => {
 };
 
 export const handleGetCuentas = (req, res) => {
-    const { _id, client, gender } = req.query;
+    const { _id, client, gender, isActive} = req.query;
 
     if (Object.keys(req.query).length > 0) {
         let resultados = [];
@@ -17,6 +17,9 @@ export const handleGetCuentas = (req, res) => {
             resultados = cuentas.filter(c => c.client.toLowerCase().includes(client.toLowerCase()));
         } else if (gender) {
             resultados = cuentas.filter(c => c.gender.toLowerCase() === gender.toLowerCase());
+        } else if (isActive !== undefined) {
+            const isActiveBool = (isActive === 'true');
+            resultados = cuentas.filter(c => c.isActive === isActiveBool);
         } else {
             return res.status(400).json({ finded: false, message: "Parámetro de consulta no válido." });
         }
