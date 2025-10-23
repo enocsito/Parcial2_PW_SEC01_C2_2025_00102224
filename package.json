@@ -1,0 +1,24 @@
+{
+  "name": "parcial2_pw_sec01_c2_2025_00102224",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enocsito/Parcial2_PW_SEC01_C2_2025_00102224.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enocsito/Parcial2_PW_SEC01_C2_2025_00102224/issues"
+  },
+  "homepage": "https://github.com/enocsito/Parcial2_PW_SEC01_C2_2025_00102224#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
