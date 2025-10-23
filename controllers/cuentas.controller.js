@@ -6,7 +6,7 @@ const parseBalance = (balanceStr) => {
 };
 
 export const handleGetCuentas = (req, res) => {
-    const { _id, client, gender, isActive} = req.query;
+    const { _id, client, gender, isActive, balance} = req.query;
 
     if (Object.keys(req.query).length > 0) {
         let resultados = [];
@@ -20,6 +20,9 @@ export const handleGetCuentas = (req, res) => {
         } else if (isActive !== undefined) {
             const isActiveBool = (isActive === 'true');
             resultados = cuentas.filter(c => c.isActive === isActiveBool);
+        } else if (balance) {
+            const balanceValue = parseFloat(balance);
+            resultados = cuentas.filter(c => parseBalance(c.balance) === balanceValue);
         } else {
             return res.status(400).json({ finded: false, message: "Parámetro de consulta no válido." });
         }
